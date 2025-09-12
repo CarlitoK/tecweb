@@ -39,3 +39,46 @@
     ?>
     <?php
 
+
+// =================================================================
+// EJERCICIO 3: Mostrar contenido después de cada asignación
+// =================================================================
+echo "<h2>Ejercicio 3: Evolución de variables</h2>\n";
+
+$a = "PHP5";
+echo "Después de \$a = \"PHP5\": ";
+var_dump($a);
+echo "<br>\n";
+
+$z[] = &$a;
+echo "Después de \$z[] = &\$a: ";
+echo "z = "; var_dump($z);
+echo "a = "; var_dump($a);
+echo "<br>\n";
+
+$b = "5a version de PHP";
+echo "Después de \$b = \"5a version de PHP\": ";
+var_dump($b);
+echo "<br>\n";
+
+$c = $b*10;
+echo "Después de \$c = \$b*10: ";
+var_dump($c);
+echo "Nota: PHP convierte '5a version de PHP' a 5 para operación matemática<br>\n";
+
+$a .= $b;
+echo "Después de \$a .= \$b: ";
+var_dump($a);
+echo "<br>\n";
+
+$b *= $c;
+echo "Después de \$b *= \$c: ";
+var_dump($b);
+echo "Nota: PHP convierte la cadena a número para multiplicación<br>\n";
+
+$z[0] = "MySQL";
+echo "Después de \$z[0] = \"MySQL\": ";
+echo "z = "; var_dump($z);
+echo "a = "; var_dump($a);
+echo "Nota: Como \$z[0] era referencia a \$a, cambiar \$z[0] cambia \$a<br><br>\n";
+
