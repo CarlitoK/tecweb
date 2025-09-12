@@ -129,3 +129,33 @@ echo "\$c = "; var_dump($c); echo " (conversión de '9E3' a double)<br><br>\n";
 
 
 
+// =================================================================
+// EJERCICIO 6: Valores booleanos y var_dump
+// =================================================================
+echo "<h2>Ejercicio 6: Valores booleanos con var_dump</h2>\n";
+
+// Definimos las variables
+$a = "0";
+$b = "TRUE";
+$c = FALSE;
+$d = ($a OR $b);
+$e = ($a AND $c);
+$f = ($a XOR $b);
+
+echo "Variables booleanas:<br>\n";
+echo "\$a = \"0\": "; var_dump($a); echo "<br>\n";
+echo "\$b = \"TRUE\": "; var_dump($b); echo "<br>\n";
+echo "\$c = FALSE: "; var_dump($c); echo "<br>\n";
+echo "\$d = (\$a OR \$b): "; var_dump($d); echo "<br>\n";
+echo "\$e = (\$a AND \$c): "; var_dump($e); echo "<br>\n";
+echo "\$f = (\$a XOR \$b): "; var_dump($f); echo "<br><br>\n";
+
+echo "Investigación - Función para transformar booleano en echo:<br>\n";
+echo "La función <strong>var_export()</strong> permite mostrar valores booleanos de forma legible:<br>\n";
+echo "\$c con var_export(): "; var_export($c); echo "<br>\n";
+echo "\$d con var_export(): "; var_export($d); echo "<br>\n";
+
+echo "<br>También se puede usar conversión a string:<br>\n";
+echo "\$c como string: '" . ($c ? 'true' : 'false') . "'<br>\n";
+echo "\$d como string: '" . ($d ? 'true' : 'false') . "'<br><br>\n";
+
