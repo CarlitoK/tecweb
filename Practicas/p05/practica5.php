@@ -112,3 +112,20 @@ function mostrarVariablesGlobales() {
 }
 mostrarVariablesGlobales();
 
+// =================================================================
+// EJERCICIO 5: Nuevos valores de variables
+// =================================================================
+echo "<h2>Ejercicio 5: Nuevos valores al final del script</h2>\n";
+
+$a = "7 personas";
+$b = (integer) $a;
+$a = "9E3";
+$c = (double) $a;
+
+echo "Después de las nuevas asignaciones:<br>\n";
+echo "\$a = "; var_dump($a); echo "<br>\n";
+echo "\$b = "; var_dump($b); echo " (conversión de '7 personas' a entero)<br>\n";
+echo "\$c = "; var_dump($c); echo " (conversión de '9E3' a double)<br><br>\n";
+
+
+
