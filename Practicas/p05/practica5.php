@@ -157,5 +157,59 @@ echo "\$d con var_export(): "; var_export($d); echo "<br>\n";
 
 echo "<br>También se puede usar conversión a string:<br>\n";
 echo "\$c como string: '" . ($c ? 'true' : 'false') . "'<br>\n";
-echo "\$d como string: '" . ($d ? 'true' : 'false') . "'<br><br>\n";
+
+
+// =================================================================
+// EJERCICIO 7: Variable $_SERVER
+// =================================================================
+echo "<h2>Ejercicio 7: Información del servidor con \$_SERVER</h2>\n";
+
+echo "<strong>a. Versión de Apache y PHP:</strong><br>\n";
+if (isset($_SERVER['SERVER_SOFTWARE'])) {
+    echo "Servidor: " . $_SERVER['SERVER_SOFTWARE'] . "<br>\n";
+} else {
+    echo "SERVER_SOFTWARE no disponible (posible CLI)<br>\n";
+}
+echo "Versión de PHP: " . PHP_VERSION . "<br><br>\n";
+
+echo "<strong>b. Nombre del sistema operativo (servidor):</strong><br>\n";
+echo "Sistema operativo: " . PHP_OS . "<br>\n";
+if (isset($_SERVER['SERVER_NAME'])) {
+    echo "Nombre del servidor: " . $_SERVER['SERVER_NAME'] . "<br>\n";
+} else {
+    echo "SERVER_NAME no disponible<br>\n";
+}
+echo "<br>\n";
+
+echo "<strong>c. Idioma del navegador (cliente):</strong><br>\n";
+if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+    echo "Idiomas aceptados: " . $_SERVER['HTTP_ACCEPT_LANGUAGE'] . "<br>\n";
+} else {
+    echo "HTTP_ACCEPT_LANGUAGE no disponible (posible CLI)<br>\n";
+}
+
+if (isset($_SERVER['HTTP_USER_AGENT'])) {
+    echo "User Agent: " . $_SERVER['HTTP_USER_AGENT'] . "<br>\n";
+} else {
+    echo "HTTP_USER_AGENT no disponible (posible CLI)<br>\n";
+}
+
+echo "<br><strong>Información adicional del entorno:</strong><br>\n";
+echo "Método de ejecución: " . (php_sapi_name()) . "<br>\n";
+echo "Directorio actual: " . getcwd() . "<br>\n";
+
+// Mostrar algunas variables $_SERVER importantes si están disponibles
+$server_vars = ['REQUEST_METHOD', 'REQUEST_URI', 'SCRIPT_NAME', 'QUERY_STRING', 'DOCUMENT_ROOT'];
+foreach ($server_vars as $var) {
+    if (isset($_SERVER[$var])) {
+        echo "$var: " . $_SERVER[$var] . "<br>\n";
+    }
+}
+
+echo "<br><em>Nota: Algunas variables \$_SERVER pueden no estar disponibles en modo CLI (línea de comandos)</em>\n";
+?>
+</body>
+
+</html>
+
 
