@@ -40,9 +40,9 @@
     <?php
 
 
-// =================================================================
+
 // EJERCICIO 3: Mostrar contenido después de cada asignación
-// =================================================================
+
 echo "<h2>Ejercicio 3: Evolución de variables</h2>\n";
 
 $a = "PHP5";
@@ -82,12 +82,11 @@ echo "z = "; var_dump($z);
 echo "a = "; var_dump($a);
 echo "Nota: Como \$z[0] era referencia a \$a, cambiar \$z[0] cambia \$a<br><br>\n";
 
-// =================================================================
+
 // EJERCICIO 4: Variables con $GLOBALS
-// =================================================================
+
 echo "<h2>Ejercicio 4: Variables con \$GLOBALS</h2>\n";
 
-// Reiniciamos las variables para este ejercicio
 $a = "PHP5";
 $z[] = &$a;
 $b = "5a version de PHP";
@@ -112,9 +111,9 @@ function mostrarVariablesGlobales() {
 }
 mostrarVariablesGlobales();
 
-// =================================================================
+
 // EJERCICIO 5: Nuevos valores de variables
-// =================================================================
+
 echo "<h2>Ejercicio 5: Nuevos valores al final del script</h2>\n";
 
 $a = "7 personas";
@@ -129,12 +128,11 @@ echo "\$c = "; var_dump($c); echo " (conversión de '9E3' a double)<br><br>\n";
 
 
 
-// =================================================================
 // EJERCICIO 6: Valores booleanos y var_dump
-// =================================================================
+
 echo "<h2>Ejercicio 6: Valores booleanos con var_dump</h2>\n";
 
-// Definimos las variables
+
 $a = "0";
 $b = "TRUE";
 $c = FALSE;
@@ -159,9 +157,9 @@ echo "<br>También se puede usar conversión a string:<br>\n";
 echo "\$c como string: '" . ($c ? 'true' : 'false') . "'<br>\n";
 
 
-// =================================================================
+
 // EJERCICIO 7: Variable $_SERVER
-// =================================================================
+
 echo "<h2>Ejercicio 7: Información del servidor con \$_SERVER</h2>\n";
 
 echo "<strong>a. Versión de Apache y PHP:</strong><br>\n";
@@ -206,7 +204,6 @@ foreach ($server_vars as $var) {
     }
 }
 
-echo "<br><em>Nota: Algunas variables \$_SERVER pueden no estar disponibles en modo CLI (línea de comandos)</em>\n";
 ?>
 </body>
 
