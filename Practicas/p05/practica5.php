@@ -82,3 +82,33 @@ echo "z = "; var_dump($z);
 echo "a = "; var_dump($a);
 echo "Nota: Como \$z[0] era referencia a \$a, cambiar \$z[0] cambia \$a<br><br>\n";
 
+// =================================================================
+// EJERCICIO 4: Variables con $GLOBALS
+// =================================================================
+echo "<h2>Ejercicio 4: Variables con \$GLOBALS</h2>\n";
+
+// Reiniciamos las variables para este ejercicio
+$a = "PHP5";
+$z[] = &$a;
+$b = "5a version de PHP";
+$c = $b*10;
+$a .= $b;
+$b *= $c;
+$z[0] = "MySQL";
+
+echo "Valores usando \$GLOBALS:<br>\n";
+echo "\$GLOBALS['a'] = "; var_dump($GLOBALS['a']); echo "<br>\n";
+echo "\$GLOBALS['b'] = "; var_dump($GLOBALS['b']); echo "<br>\n";
+echo "\$GLOBALS['c'] = "; var_dump($GLOBALS['c']); echo "<br>\n";
+echo "\$GLOBALS['z'] = "; var_dump($GLOBALS['z']); echo "<br>\n";
+
+echo "<br>Valores usando modificador global en función:<br>\n";
+function mostrarVariablesGlobales() {
+    global $a, $b, $c, $z;
+    echo "Con global - a = "; var_dump($a); echo "<br>\n";
+    echo "Con global - b = "; var_dump($b); echo "<br>\n";
+    echo "Con global - c = "; var_dump($c); echo "<br>\n";
+    echo "Con global - z = "; var_dump($z); echo "<br>\n";
+}
+mostrarVariablesGlobales();
+
