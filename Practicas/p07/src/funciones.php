@@ -88,7 +88,6 @@
         echo '<th>Letra</th>';
         echo '</tr>';   
 
-// Crear tabla usando foreach
         foreach ($letras as $key => $value) {
             echo '<tr>';
             echo '<td>' . $key . '</td>';
@@ -99,5 +98,30 @@
         echo '</table>';
 
     }
+
+    function postEDAD(){
+    if(isset($_POST["gender"]) && isset($_POST["edad"])) {
+        $gender = $_POST["gender"];
+        $edad = $_POST["edad"];
+        
+        if($gender == "Femenino"){
+            if(($edad >= 18) && ($edad <= 35)){
+                echo "<p Bienvenida, usted está en el rango de edad permitido.</p>";
+            } else {
+                echo '<h3>Edad no válida para mostrar mensaje (debe ser entre 18-35 años)</h3>';
+            }
+        } elseif($gender == "Masculino"){
+            if(($edad >= 18) && ($edad <= 35)){
+                echo "Bienvenido, usted está en el rango de edad permitido.</p>";
+            } else {
+                echo '<h3>Edad no válida para mostrar mensaje (debe ser entre 18-35 años)</h3>';
+            }
+        } else {
+            echo '<h3>Género no válido</h3>';
+        }
+    } else {
+        echo '<h3>Por favor completa todos los campos</h3>';
+    }
+}
 
 ?>

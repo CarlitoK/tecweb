@@ -46,12 +46,7 @@
             generarEntero($numero);
         }
     ?>
-    <h2>Ejercicio 3.2</h2>
-    <p>Crear una variante de este script utilizando el ciclo do-while, el número dado se debe obtener vía GET.</p>
-
-    <?php
-        generarEnteroGET($_GET["num"]);
-    ?>
+    
     <h2>Ejercicio 4</h2>
     <p>Crear un arreglo cuyos índices van de 97 a 122 y cuyos valores son las letras de la ‘a’
     a la ‘z’. Usa la función chr(n) que devuelve el caracter cuyo código ASCII es n para poner
@@ -61,6 +56,27 @@
         crearArreglo();
     ?>
 
+    <h2>Ejercicio 5</h2>
+    <p>Usar las variables $edad y $sexo en una instrucción if para identificar una persona de
+    sexo “femenino”, cuya edad oscile entre los 18 y 35 años y mostrar un mensaje de
+    bienvenida apropiado.</p>
+
+     <form action="http://localhost/tecweb/practicas/p07/index.php" method = "post">
+         <label for="gender">Selecciona tu género: </label>
+
+         <ul>
+            <li><input type="radio" name="gender" value="Femenino">Femenino</li>
+            <li><input type="radio" name="gender" value="Masculino">Masculino</li>
+            <br>
+            <li>Edad: <input type="number" name="edad" id="edad"></li>
+            <br>
+            <input type="submit" value="Enviar">
+         </ul>
+         
+    </form>
+    <?php
+        postEDAD();
+    ?>
 
 </body>
 
