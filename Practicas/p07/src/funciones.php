@@ -61,5 +61,16 @@
         }
     }
 
+    function generarEnteroGET($num){
+        $multiplo = false;
+        do{
+            $numeroRandom = rand(0,1000);
+            if($numeroRandom%$num == 0){
+                echo "<p>El numero ".$numeroRandom." es multiplo de ".$num."</p>";
+                $multiplo = true;
+            }
+        }while(!$multiplo);
+    }
+
 
 ?>

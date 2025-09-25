@@ -46,7 +46,13 @@
             generarEntero($numero);
         }
     ?>
-   
+    <h2>Ejercicio 3.2</h2>
+    <p>Crear una variante de este script utilizando el ciclo do-while, el número dado se debe obtener vía GET.</p>
+
+    <?php
+        generarEnteroGET($_GET["num"]);
+    ?>
+
 </body>
 
 </html>
