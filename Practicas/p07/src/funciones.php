@@ -48,10 +48,17 @@
         }while(!$encontrado);
 
         echo $numerosGenerados." números obtenidos en ".$iteraciones." iteraciones";
+    }
 
-        
-
-
+    function generarEntero($num){
+        $multiplo = false;
+        while(!$multiplo){
+            $numeroRandom = rand(0,1000);
+            if($numeroRandom%$num == 0){
+                echo "<p>El numero ".$numeroRandom." es multiplo de ".$num."</p>";
+                $multiplo = true;
+            }
+        }
     }
 
 

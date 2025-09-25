@@ -19,7 +19,7 @@
     <form action="http://localhost/tecweb/practicas/p07/index.php" method="post">
         Name: <input type="text" name="name"><br>
         E-mail: <input type="text" name="email"><br>
-        <input type="submit" >
+        <input type="submit">
     </form>
     <br>
     <?php
@@ -31,6 +31,22 @@
     <?php
         generarSecuencia()
     ?>
+    <h2>Ejercicio 3.1</h2>
+    <p>Utiliza un ciclo while para encontrar el primer número entero obtenido aleatoriamente,
+        pero que además sea múltiplo de un número dado.</p>
+
+    <form action="" method = "post">
+        <label for="numero">Ingresa un número: </label>
+        <input type="number" name="numero" id="numero">
+        <input type="submit" value="enviar">
+    </form>
+    <?php 
+        if (isset($_POST['numero']) && $_POST['numero'] != '') {
+            $numero = (int)$_POST['numero'];
+            generarEntero($numero);
+        }
+    ?>
+   
 </body>
 
 </html>
