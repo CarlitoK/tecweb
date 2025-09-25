@@ -46,6 +46,13 @@
             generarEntero($numero);
         }
     ?>
+
+    <h2>Ejercicio 3.2</h2>
+    <p>Crear una variante de este script utilizando el ciclo do-while, el número dado se debe obtener vía GET.</p>
+
+    <?php
+        //generarEnteroGET(isset($_GET["num"]));
+    ?>
     
     <h2>Ejercicio 4</h2>
     <p>Crear un arreglo cuyos índices van de 97 a 122 y cuyos valores son las letras de la ‘a’
@@ -77,7 +84,90 @@
     <?php
         postEDAD();
     ?>
+    <h2>Ejercicio 6</h2>
+    <p>Crea en código duro un arreglo asociativo que sirva para registrar el parque vehicular de
+    una ciudad.</p>
 
+    <h3> Consultar por Matrícula</h3>
+            <form method="post" action="">
+                <label for="matricula">Ingrese la matrícula (Formato: ABC1234):</label><br />
+                <input type="text" id="matricula" name="matricula" placeholder="Ej: ABC1234" maxlength="7" />
+                <input type="submit" name="buscar" value="Buscar Vehículo" />
+            </form>
+        <h3> Ver Todos los Vehículos</h3>
+            <form method="post" action="">
+                <input type="submit" name="mostrar_todos" value="Mostrar Todo el Parque Vehicular" />
+            </form>
+    <?php
+       
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            
+            // Búsqueda por matrícula
+            if (isset($_POST['buscar']) && !empty($_POST['matricula'])) {
+                $matriculaBuscar = $_POST['matricula'];
+                
+                if (!validarMatricula($matriculaBuscar)) {
+                    echo '<div class="error"> Formato de matrícula inválido. Use el formato: ABC1234 (3 letras y 4 números)</div>';
+                } else {
+                    $vehiculo = buscarPorMatricula($matriculaBuscar, $parqueVehicular);
+                    
+                    if ($vehiculo) {
+                        echo '<div class="success"> Vehículo encontrado:</div>';
+                        echo '<div class="vehiculo">';
+                        echo '<div class="matricula"> Matrícula: ' . strtoupper($matriculaBuscar) . '</div>';
+                        
+                        echo '<div class="info-auto">';
+                        echo '<h4> Información del Auto</h4>';
+                        echo '<strong>Marca:</strong> ' . $vehiculo['Auto']['Marca'] . '<br />';
+                        echo '<strong>Modelo:</strong> ' . $vehiculo['Auto']['Modelo'] . '<br />';
+                        echo '<strong>Tipo:</strong> ' . ucfirst($vehiculo['Auto']['Tipo']) . '<br />';
+                        echo '</div>';
+                        
+                        echo '<div class="info-propietario">';
+                        echo '<h4> Información del Propietario</h4>';
+                        echo '<strong>Nombre:</strong> ' . $vehiculo['Propietario']['Nombre'] . '<br />';
+                        echo '<strong>Ciudad:</strong> ' . $vehiculo['Propietario']['Ciudad'] . '<br />';
+                        echo '<strong>Dirección:</strong> ' . $vehiculo['Propietario']['Dirección'] . '<br />';
+                        echo '</div>';
+                        
+                        echo '</div>';
+                    } else {
+                        echo '<div class="error"> No se encontró ningún vehículo con la matrícula: ' . strtoupper($matriculaBuscar) . '</div>';
+                    }
+                }
+            }
+            
+           
+            if (isset($_POST['mostrar_todos'])) {
+                $todosLosAutos = mostrarTodosLosAutos($parqueVehicular);
+                
+              
+                
+                echo '<h2> Listado Completo del Parque Vehicular</h2>';
+                
+                foreach ($todosLosAutos as $matricula => $vehiculo) {
+                    echo '<div class="vehiculo">';
+                    echo '<div class="matricula"> Matrícula: ' . $matricula . '</div>';
+                    
+                    echo '<div class="info-auto">';
+                    echo '<h4>🔧 Información del Auto</h4>';
+                    echo '<strong>Marca:</strong> ' . $vehiculo['Auto']['Marca'] . '<br />';
+                    echo '<strong>Modelo:</strong> ' . $vehiculo['Auto']['Modelo'] . '<br />';
+                    echo '<strong>Tipo:</strong> ' . ucfirst($vehiculo['Auto']['Tipo']) . '<br />';
+                    echo '</div>';
+                    
+                    echo '<div class="info-propietario">';
+                    echo '<h4>👤 Información del Propietario</h4>';
+                    echo '<strong>Nombre:</strong> ' . $vehiculo['Propietario']['Nombre'] . '<br />';
+                    echo '<strong>Ciudad:</strong> ' . $vehiculo['Propietario']['Ciudad'] . '<br />';
+                    echo '<strong>Dirección:</strong> ' . $vehiculo['Propietario']['Dirección'] . '<br />';
+                    echo '</div>';
+                    
+                    echo '</div>';
+                }
+            }
+        }
+    ?>
 </body>
 
 </html>
