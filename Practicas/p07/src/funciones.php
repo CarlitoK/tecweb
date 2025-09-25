@@ -73,4 +73,31 @@
     }
 
 
+
+    function crearArreglo(){
+        $letras = array();
+
+        for($i=97;$i<=122;$i++){
+            $letras[$i]=chr($i);
+        }
+
+        echo '<h3>Tabla con foreach:</h3>';
+        echo '<table>';
+        echo '<tr>';
+        echo '<th>Índice (Código ASCII)</th>';
+        echo '<th>Letra</th>';
+        echo '</tr>';   
+
+// Crear tabla usando foreach
+        foreach ($letras as $key => $value) {
+            echo '<tr>';
+            echo '<td>' . $key . '</td>';
+            echo '<td>' . $value . '</td>';
+            echo '</tr>';
+        }
+
+        echo '</table>';
+
+    }
+
 ?>
