@@ -32,7 +32,4 @@ function variablesV(){
     div5.innerHTML = '<h3> Edad: '+edad+'</h3>';
     div6.innerHTML = '<h3> Altura: '+altura+'</h3>';
     div7.innerHTML = '<h3> Casado: '+casado+'</h3>';
-
-
-
 }
