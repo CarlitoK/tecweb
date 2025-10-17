@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E6F0FF; /* Azul muy claro para el fondo de la página */
+    color: #003366; /* Texto principal en azul oscuro */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar el contenido horizontalmente */
+}
+
+/* Título Principal */
+h1 {
+    color: #003366;
+    border-bottom: 2px solid #003366;
+    padding-bottom: 10px;
+    text-align: center;
+    width: 100%;
+    max-width: 600px; /* Asegura que el borde no sea demasiado ancho */
+    margin-bottom: 20px;
+}
+
+/* Estilo del Formulario */
+#productoForm {
+    background-color: #FFFFFF; /* Fondo del formulario blanco puro para contraste */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 51, 102, 0.1); /* Sombra sutil en tono azul */
+    width: 100%;
+    max-width: 600px; /* Ancho máximo para el formulario */
+    border: 1px solid #B0C4DE; /* Borde suave en un azul intermedio */
+}
+
+/* Estilo del Fieldset */
+fieldset {
+    border: 1px solid #4A90E2; /* Borde principal en azul medio */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+/* Estilo del Legend */
+legend {
+    color: #003366; /* Texto de la leyenda en azul oscuro */
+    font-weight: bold;
+    padding: 0 10px;
+    font-size: 1.2em;
+}
+
+/* Estilo de la Lista */
+ul {
+    list-style: none; /* Quita los puntos de la lista */
+    padding: 0;
+}
+
+/* Estilo de los Ítems de la Lista (cada campo) */
+li {
+    margin-bottom: 15px;
+    display: flex; /* Usamos flexbox para alinear etiqueta y campo */
+    flex-direction: column; /* Coloca la etiqueta encima del campo */
+}
+
+/* Estilo de las Etiquetas */
+label {
+    font-weight: 600;
+    color: #003366;
+    margin-bottom: 5px;
+}
+
+/* Estilo de los Campos de Entrada y Selección */
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #B0C4DE; /* Borde gris azulado */
+    border-radius: 4px;
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+    font-size: 1em;
+    color: #003366;
+    transition: border-color 0.3s;
+}
+
+/* Estilo al enfocar (hover/focus) */
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #4A90E2; /* Borde azul brillante al enfocar */
+    outline: none; /* Elimina el contorno predeterminado del navegador */
+}
+
+/* Estilo para el Textarea (Detalles) */
+textarea {
+    resize: vertical; /* Permite solo redimensionamiento vertical */
+    min-height: 100px;
+}
+
+/* Contenedor de Botones */
+#productoForm p {
+    text-align: right; /* Alinea los botones a la derecha */
+    margin-top: 25px;
+}
+
+/* Estilo de los Botones (Submit y Reset) */
+input[type="submit"],
+input[type="reset"] {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+/* Botón de Registrar Producto (Énfasis Principal) */
+input[type="submit"] {
+    background-color: #003366; /* Fondo azul oscuro */
+    color: #FFFFFF; /* Texto blanco */
+}
+
+input[type="submit"]:hover {
+    background-color: #004488; /* Un tono más oscuro al pasar el ratón */
+    transform: translateY(-1px); /* Efecto de "levantamiento" sutil */
+}
+
+/* Botón de Limpiar (Énfasis Secundario) */
+input[type="reset"] {
+    background-color: #4A90E2; /* Fondo azul medio */
+    color: #FFFFFF; /* Texto blanco */
+}
+
+input[type="reset"]:hover {
+    background-color: #6AA5EE; /* Un tono más claro al pasar el ratón */
+    transform: translateY(-1px);
+}

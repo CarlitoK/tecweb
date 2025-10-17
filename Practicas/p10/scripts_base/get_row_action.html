@@ -8,19 +8,10 @@
               crossorigin="anonymous" />
         <script>
             function show() {
-                // se obtiene el id de la fila donde está el botón presinado
                 var rowId = event.target.parentNode.parentNode.id;
 
-                // se obtienen los datos de la fila en forma de arreglo
                 var data = document.getElementById(rowId).querySelectorAll(".row-data");
-                /**
-                querySelectorAll() devuelve una lista de elementos (NodeList) que 
-                coinciden con el grupo de selectores CSS indicados.
-                (ver: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)
-
-                En este caso se obtienen todos los datos de la fila con el id encontrado
-                y que pertenecen a la clase "row-data".
-                */
+                
 
                 var name = data[0].innerHTML;
                 var age = data[1].innerHTML;
@@ -71,28 +62,11 @@
             </tbody>
         </table>
         <script>
-            function send2form(name, age) {
-                var form = document.createElement("form");
-
-                var nombreIn = document.createElement("input");
-                nombreIn.type = 'text';
-                nombreIn.name = 'nombre';
-                nombreIn.value = name;
-                form.appendChild(nombreIn);
-
-                var edadIn = document.createElement("input");
-                edadIn.type = 'text';
-                edadIn.name = 'edad';
-                edadIn.value = age;
-                form.appendChild(edadIn);
-
-                console.log(form);
-
-                form.method = 'POST';
-                form.action = 'http://localhost/buap/tecweb/practicas/p07/formulario.php';  
-
-                document.body.appendChild(form);
-                form.submit();
+            function send2form(name, age) {     //form) { 
+                var urlForm = "http://localhost/tecweb/practicas/p10/scripts_base/formulario.php";
+                var propName = "nombre="+name;
+                var propAge = "edad="+age;
+                window.open(urlForm+"?"+propName+"&"+propAge);
             }
         </script>
     </body>
