@@ -1,67 +1,69 @@
 <?php
-    header("Content-Type: application/xhtml+xml; charset=utf-8");
-
     if(isset($_GET['tope'])) {
         $tope = $_GET['tope'];
     } else {
         die('Parámetro "tope" no detectado...');
     }
-
     if (!empty($tope)) {
         /** SE CREA EL OBJETO DE CONEXION */
         @$link = new mysqli('localhost', 'root', 'bebecarlo', 'marketzone');
-
         /** comprobar la conexión */
         if ($link->connect_errno) {
             die('Falló la conexión: '.$link->connect_error.'<br/>');
         }
-
         $productos = [];
-
         if ($result = $link->query("SELECT * FROM productos WHERE unidades <= $tope")) {
             $productos = $result->fetch_all(MYSQLI_ASSOC);
             $result->free();
         }
-
         $link->close();
-
-        /** Salida en XHTML */
-        echo '<?xml version="1.0" encoding="UTF-8"?>';
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
-
-<head>
-    <title>Productos con unidades menores o iguales a <?php echo htmlspecialchars($tope); ?></title>
-</head>
-
-<body>
-    <h1>Productos con ≤ <?php echo htmlspecialchars($tope); ?> unidades</h1>
-    <?php if (count($productos) > 0): ?>
-    <table border="1" cellspacing="0" cellpadding="5">
-        <thead>
-            <tr>
-                <?php foreach(array_keys($productos[0]) as $col): ?>
-                <th><?php echo htmlspecialchars($col); ?></th>
-                <?php endforeach; ?>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($productos as $producto): ?>
-            <tr>
-                <?php foreach($producto as $valor): ?>
-                <td><?php echo htmlspecialchars($valor); ?></td>
-                <?php endforeach; ?>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-    <?php else: ?>
-    <p>No se encontraron productos con ≤ <?php echo htmlspecialchars($tope); ?> unidades.</p>
-    <?php endif; ?>
-</body>
-
-</html>
-<?php
     }
 ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Productos</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <h3>PRODUCTOS CON UNIDADES MENORES O IGUALES A <?= $tope ?></h3>
+        <br/>
+       
+        <?php if(count($productos) > 0) : ?>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Modelo</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Unidades</th>
+                        <th scope="col">Detalles</th>
+                        <th scope="col">Imagen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($productos as $row) : ?>
+                    <tr>
+                        <th scope="row"><?= $row['id'] ?></th>
+                        <td><?= $row['nombre'] ?></td>
+                        <td><?= $row['marca'] ?></td>
+                        <td><?= $row['modelo'] ?></td>
+                        <td><?= $row['precio'] ?></td>
+                        <td><?= $row['unidades'] ?></td>
+                        <td><?= utf8_encode($row['detalles']) ?></td>
+                        <td><img src="<?= $row['imagen'] ?>" alt="Producto" /></td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        <?php else : ?>
+            <script>
+                alert('No se encontraron productos con unidades menores o iguales a <?= $tope ?>');
+            </script>
+        <?php endif; ?>
+    </body>
+</html>

@@ -126,6 +126,6 @@ if ($link->connect_errno) {
         </div>
     <?php endif; ?>
     
-    <a href="http://localhost/tecweb/practicas/p09/formulario_productos.html">Volver al formulario</a>
+    <a href="http://localhost/tecweb/practicas/p10/formulario_productos.html">Volver al formulario</a>
 </body>
 </html>

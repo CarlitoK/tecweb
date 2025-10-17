@@ -8,7 +8,7 @@
     if (!empty($tope))
     {
         /** SE CREA EL OBJETO DE CONEXION */
-        @$link = new mysqli('localhost', 'root', 'yisshanli', 'marketzone');    
+        @$link = new mysqli('localhost', 'root', 'bebecarlo', 'marketzone');    
 
         /** comprobar la conexión */
         if ($link->connect_errno) 
@@ -62,7 +62,7 @@
                         <td><?= utf8_encode($row['detalles']) ?></td>
                         <td><img src="<?= $row['imagen'] ?>" style="max-width:100px;"/></td>
                         <td>
-                            <a href="formulario_productos._v2.php?id=<?= $value['id'] ?>">Modificar</a>
+                            <a href="formulario_productos_v2.php?id=<?= $row['id'] ?>">Modificar</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

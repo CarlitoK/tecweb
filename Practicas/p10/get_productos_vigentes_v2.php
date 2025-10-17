@@ -6,7 +6,7 @@
     $data = array();
 
 		/** SE CREA EL OBJETO DE CONEXION */
-		@$link = new mysqli('localhost', 'root', 'yisshanli', 'marketzone');
+		@$link = new mysqli('localhost', 'root', 'bebecarlo', 'marketzone');
         /** NOTA: con @ se suprime el Warning para gestionar el error por medio de código */
 
 		/** comprobar la conexión */
@@ -75,7 +75,7 @@
 						<td><?= $value['detalles'] ?></td>
 						<td><img src=<?= $value['imagen'] ?> ></td>
 						<td>
-                           <a href="formulario_productos._v2.php?id=<?= $value['id'] ?>">Modificar</a>
+                           <a href="formulario_productos_v2.php?id=<?= $value['id'] ?>">Modificar</a>
                         </td>
 					</tr>
 					<?php endforeach; ?>
